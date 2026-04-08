@@ -7,14 +7,15 @@ class Ai:
 
 	def answer(self, input_lst):
 		genes = self.genes
+		input_lst += [1, -1]
 		A = [0, 0, 0, 0]
 		for i in range(4):
-			for j in range(2):
-				A[i] += genes[2 * i + j] * input_lst[j]
+			for j in range(4):
+				A[i] += genes[4 * i + j] * input_lst[j]
 		A = [sin(i) for i in A]
 		B = 0
 		for i in range(4):
-			B += genes[8 + i] * A[i]
+			B += genes[16 + i] * A[i]
 		
 		return B
 
@@ -41,7 +42,7 @@ data.append(([0, 1], 1))
 data.append(([1, 0], 1))
 data.append(([1, 1], 0))
 
-ai = Ai([random() - 1 / 2 for _ in range(12)])
+ai = Ai([random() - 1 / 2 for _ in range(20)])
 for i in range(100):
 	if i % 10 == 0:
 		print(i, ai.how_good_all(data))
