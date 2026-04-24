@@ -33,7 +33,7 @@ class Ai:
 		genes1 = self.genes[:]
 		for i in range(len(genes1)):
 			if random() < 0.25:
-				genes1[i] += 0.1 * random()
+				genes1[i] += 0.1 * (random() - 1 / 2)
 		return Ai(genes1)
 
 data = []
