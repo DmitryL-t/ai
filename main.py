@@ -3,7 +3,7 @@ from random import random
 
 class Ai:
 	def __init__(self, genes):
-		# len(self.genes) = 16
+		# len(self.genes) == 16
 		self.genes = genes
 
 	def answer(self, input_lst):
@@ -57,7 +57,5 @@ for i in range(1000):
 		best_score = score 
 
 print(ai.score_all(data))
-print('>', ai.answer([0, 0]))
-print('>', ai.answer([0, 1]))
-print('>', ai.answer([1, 0]))
-print('>', ai.answer([1, 1]))
+for i, j in data:
+	print('>', *i, ai.answer(i))
