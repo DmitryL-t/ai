@@ -8,7 +8,7 @@ class Ai:
 
 	def answer(self, input_lst):
 		genes = self.genes
-		input_lst.append(1)
+		input_lst = input_lst + [1]
 		# len(input_lst) == 3
 		A = [0, 0, 0, 0]
 		for i in range(4):
