@@ -45,17 +45,15 @@ data.append(([1, 0], 1))
 data.append(([1, 1], 0))
 
 ai = Ai([random() - 1 / 2 for _ in range(16)])
-score = ai.score_all(data)
-print(score)
-best_score = score
+best_score = ai.score_all(data)
+
 for i in range(1000):
 	ai_list = [ai.c() for _ in range(10)] + [ai]
 	ai = sorted(ai_list, key=lambda ai:ai.score_all(data))[0]
 	score = ai.score_all(data)
 	if score < best_score:
 		print(i, ai.score_all(data))
-		best_score = score 
-
+		best_score = score
 print(ai.score_all(data))
-for i, j in data:
-	print('>', *i, ai.answer(i))
+for i in data:
+	print('>', *i[0], ai.answer(i[0]))
